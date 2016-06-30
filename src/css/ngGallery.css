@@ -1,18 +1,26 @@
 .ng-gallery {
-  width: 100%;
-  height: 100%;
   display: inline-block;
+  box-shadow: 3px 3px 0px #e3e3e3;
 }
 
 img.ng-thumb {
-  height: 50px;
-  float: left;
+  height: 120px;
   display: block;
   cursor: pointer;
-  margin: 2px 2px 0 0; 
+  width: 120px;
+  border-right: 1px solid #e3e3e3;
+  border-bottom: 1px solid #e3e3e3;
 }
 
-.ng-overlay { 
+.ng-gallery .photo-count {
+  border-left: 1px solid #e3e3e3;
+  border-bottom: 1px solid #e3e3e3;
+  padding: 5px;
+  color: #448fe4;
+  cursor: pointer;
+}
+
+.ng-overlay {
   position: fixed;
   top: 0;
   left: 0;
@@ -21,15 +29,9 @@ img.ng-thumb {
   background: #000;
   opacity: 0.85;
   z-index: 9999;
-  -webkit-user-select: none;
-  -khtml-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-  -webkit-user-drag: none;
 }
 
-.ng-gallery-content { 
+.ng-gallery-content {
   position: fixed;
   top: 0;
   left: 0;
@@ -39,69 +41,31 @@ img.ng-thumb {
   text-align: center;
 }
 
-.ng-gallery-content > a.close-popup {
-  font-size: 42px;
-  float: right;
-  color: #fff;
-  text-decoration: none;
-  margin: 0 30px 0 0;
-  cursor: pointer;
-  position: absolute;
-  top: 20px;
-  right: 0;
-}
-
-.ng-gallery-content > a.download-image {
-  font-size: 42px;
-  float: right;
-  color: #fff;
-  text-decoration: none;
-  margin: 0 30px 0 0;
-  cursor: pointer;
-  position: absolute;
-  top: 20px;
-  right: 63px;
-}
-
-.ng-gallery-content > a.nav-left, .ng-gallery-content > a.nav-right {
-  color: #fff;
-  text-decoration: none;
-  font-size: 60px;
-  cursor: pointer;
-  outline: none;
-}
-
-.ng-gallery-content > a.nav-left {
+.ng-gallery-content > button.nav-left {
   position: fixed;
   left: 30px;
-  top: 50%;
-  transform: translateY(-50%);
+  top: 45%;
+  transform: translateY(-45%);
 }
 
-.ng-gallery-content > a.nav-right {
+.ng-gallery-content > button.nav-right {
   position: fixed;
   right: 30px;
-  top: 50%;
-  transform: translateY(-50%);
+  top: 45%;
+  transform: translateY(-45%);
 }
 
 .ng-gallery-content > img {
   height: auto;
-  max-height: calc(100% - 150px);
+  max-height: calc(100% - 320px);
   max-width: calc(100% - 100px);
   position: relative;
   display: block;
   margin: 0 auto 0 auto;
-  top: 50%;
+  top: 45%;
   transform: translateY(-50%);
   -webkit-transform: translateY(-50%);
   cursor: pointer;
-  -webkit-user-select: none;
-  -khtml-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-  -webkit-user-drag: none;
 }
 
 .ng-gallery-content > img.effect {
@@ -123,7 +87,7 @@ img.ng-thumb {
   position: fixed;
   left: 0;
   right: 0;
-  bottom: 100px;
+  bottom: 145px;
 }
 
 .ng-gallery-content > .ng-thumbnails-wrapper {
@@ -131,7 +95,7 @@ img.ng-thumb {
   height: 70px;
   text-align: center;
   position: fixed;
-  bottom: 20px;
+  bottom: 60px;
   left: 0;
   right: 0;
   margin-left: auto;
@@ -142,11 +106,12 @@ img.ng-thumb {
 .ng-gallery-content > .ng-thumbnails-wrapper > .ng-thumbnails {
   width: 4000px;
   height: 70px;
+  margin: 0 auto;
 }
 
 .ng-gallery-content > .ng-thumbnails-wrapper > .ng-thumbnails > div > img {
-  width: auto;
-  height: 70px;
+  width: 100px;
+  height: 100px;
   float: left;
   margin-right: 10px;
   cursor: pointer;
@@ -162,11 +127,11 @@ img.ng-thumb {
 /* Loading - from http://loading.io */
 uiload {
   display: inline-block;
-  position: relative; 
+  position: relative;
 }
 
 uiload > div {
-    position: relative; 
+    position: relative;
 }
 
 @-webkit-keyframes uil-ring-anim {
@@ -175,7 +140,7 @@ uiload > div {
     -moz-transform: rotate(0deg);
     -webkit-transform: rotate(0deg);
     -o-transform: rotate(0deg);
-    transform: rotate(0deg); 
+    transform: rotate(0deg);
   }
 
   100% {
@@ -183,8 +148,8 @@ uiload > div {
     -moz-transform: rotate(360deg);
     -webkit-transform: rotate(360deg);
     -o-transform: rotate(360deg);
-    transform: rotate(360deg); 
-  } 
+    transform: rotate(360deg);
+  }
 }
 
 @-moz-keyframes uil-ring-anim {
@@ -193,7 +158,7 @@ uiload > div {
     -moz-transform: rotate(0deg);
     -webkit-transform: rotate(0deg);
     -o-transform: rotate(0deg);
-    transform: rotate(0deg); 
+    transform: rotate(0deg);
   }
 
   100% {
@@ -201,8 +166,8 @@ uiload > div {
     -moz-transform: rotate(360deg);
     -webkit-transform: rotate(360deg);
     -o-transform: rotate(360deg);
-    transform: rotate(360deg); 
-    } 
+    transform: rotate(360deg);
+    }
 }
 
 @-ms-keyframes uil-ring-anim {
@@ -211,7 +176,7 @@ uiload > div {
     -moz-transform: rotate(0deg);
     -webkit-transform: rotate(0deg);
     -o-transform: rotate(0deg);
-    transform: rotate(0deg); 
+    transform: rotate(0deg);
   }
 
   100% {
@@ -219,8 +184,8 @@ uiload > div {
     -moz-transform: rotate(360deg);
     -webkit-transform: rotate(360deg);
     -o-transform: rotate(360deg);
-    transform: rotate(360deg); 
-  } 
+    transform: rotate(360deg);
+  }
 }
 
 @keyframes uil-ring-anim {
@@ -229,7 +194,7 @@ uiload > div {
     -moz-transform: rotate(0deg);
     -webkit-transform: rotate(0deg);
     -o-transform: rotate(0deg);
-    transform: rotate(0deg); 
+    transform: rotate(0deg);
   }
 
   100% {
@@ -237,8 +202,8 @@ uiload > div {
     -moz-transform: rotate(360deg);
     -webkit-transform: rotate(360deg);
     -o-transform: rotate(360deg);
-    transform: rotate(360deg); 
-  } 
+    transform: rotate(360deg);
+  }
 }
 
 .uil-ring-css {
@@ -247,7 +212,7 @@ uiload > div {
   top: 0;
   margin: 180px auto 0 auto;
   width: 100px;
-  height: 100px; 
+  height: 100px;
 }
 
 .uil-ring-css > div {
@@ -263,5 +228,101 @@ uiload > div {
     -moz-animation: uil-ring-anim 1s linear infinite;
     -webkit-animation: uil-ring-anim 1s linear infinite;
     -o-animation: uil-ring-anim 1s linear infinite;
-    animation: uil-ring-anim 1s linear infinite; 
+    animation: uil-ring-anim 1s linear infinite;
+}
+
+.ng-gallery-content .header-section, .footer-section {
+  color: whitesmoke;
+  width: 100%;
+  text-align: center;
+}
+
+.ng-gallery-content .footer-section .footer {
+  background-color: #242424;
+  margin: 0 auto;
+  font-size: 14px;
+  padding: 10px;
+  white-space: nowrap;
+}
+
+.ng-gallery-content .footer-section .footer .left,
+.ng-gallery-content .footer-section .footer .right {
+  width: 50%;
+  display: inline-block;
+  text-align: center;
+}
+
+.ng-gallery-content .footer-section {
+  padding: 8px 5px 0px 5px;
+  font-weight: 100;
+  font-size: 16px;
+  position: absolute;
+  bottom: 0;
+  z-index: 100;
+}
+
+.ng-gallery-content .header-section div {
+  margin: 3px;
+}
+
+.ng-gallery-content .header-section .heading {
+  font-size: 16px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  padding: 0 40px;
+}
+
+.ng-gallery-content .header-section .sub-heading {
+  font-size: 14px;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  margin-top: 5px;
+  padding: 0 40px;
+}
+
+.ng-gallery-content .header-section {
+  padding: 8px 5px;
+  position: absolute;
+  top: 0;
+  z-index: 100;
+  width: 100%;
+  text-align: center;
+  background-color: #000;
+  height: 70px;
+  border-bottom: solid 2px #5E3B1B;
+}
+
+.ng-gallery-content .header-text {
+  font-size: 19px;
+}
+
+.ng-gallery-content .actions {
+  position: absolute;
+  top: 15px;
+  right: 10px;
+}
+
+.ng-gallery-content .close-btn {
+  background: url(../img/image-close.svg);
+  background-repeat: no-repeat;
+  width: 32px;
+  height: 32px;
+}
+
+.ng-gallery-content .previous-btn,
+.ng-gallery-content .next-btn {
+  width: 25px;
+  height: 42px;
+  background-repeat: no-repeat;
+  background-position: 50%;
+  background-color: transparent;
+}
+
+.ng-gallery-content .next-btn {
+  background-image: url(../img/image-nav-right.svg);
+}
+
+.ng-gallery-content .previous-btn {
+  background-image: url(../img/image-nav-left.svg);
 }

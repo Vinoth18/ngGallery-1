@@ -1,0 +1,47 @@
+<div class="{{ baseClass }}" ng-if="image.thumb">
+	<img ng-src="{{ image.thumb }}" class="{{ thumbClass }}" ng-click="openGallery(0)" />
+	<div class="photo-count" ng-click="openGallery(0)">{{ photoLabel }}</div>
+</div>
+<div class="ng-overlay" ng-show="opened">
+</div>
+<div class="ng-gallery-content" unselectable="on" ng-show="opened" ng-swipe-left="nextImage()" ng-swipe-right="prevImage()">
+	<div class="uil-ring-css" ng-show="loading"><div></div></div>
+	<div class="header-section">
+		<div class="header-text">
+			<div class="heading">
+				<span>{{ currentImage.metaData.header1 }}</span>
+			</div>
+			<div class="sub-heading">
+				<span>{{ currentImage.metaData.header2 }}</span>
+			</div>
+		</div>
+		<div class="actions">
+			<button class="close-btn" ng-click="closeGallery()"></button>
+		</div>
+	</div>
+	<a href="{{getImageDownloadSrc()}}" target="_blank" ng-show="showImageDownloadButton()" class="download-image"><i class="fa fa-download"></i></a>
+	<a class="close-popup" ng-click="closeGallery()"><i class="fa fa-close"></i></a>
+	<button class="nav-left previous-btn" ng-click="prevImage()"></button>
+	<img ondragstart="return false;" draggable="false" ng-src="{{ img }}" ng-click="nextImage()" ng-show="!loading" class="effect" />
+	<button class="nav-right next-btn" ng-click="nextImage()"></button>
+	<span class="info-text">{{ index + 1 }}/{{ images.length }}</span>
+	<div class="ng-thumbnails-wrapper">
+		<div class="ng-thumbnails slide-left">
+			<div ng-repeat="i in images">
+				<img ng-src="{{ i.thumb }}" ng-class="{'active': index === $index}" ng-click="changeImage($index)" />
+			</div>
+		</div>
+	</div>
+	<div class="footer-section">
+		<div class="footer clearfix">
+			<div class="footer1">
+				<div class="left">{{ currentImage.metaData.footer.leftTop }}</div>
+				<div class="right">{{ currentImage.metaData.footer.rightTop }}</div>
+			</div>
+			<div class="footer2">
+				<div class="left">{{ currentImage.metaData.footer.leftBottom }}</div>
+				<div class="right">{{ currentImage.metaData.footer.rightBottom }}</div>
+			</div>
+		</div>
+	</div>
+</div>
