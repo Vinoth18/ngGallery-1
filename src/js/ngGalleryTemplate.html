@@ -1,6 +1,11 @@
-<div class="{{ baseClass }}" ng-if="image.thumb">
-	<img ng-src="{{ image.thumb }}" class="{{ thumbClass }}" ng-click="openGallery(0)" />
-	<div class="photo-count" ng-click="openGallery(0)">{{ photoLabel }}</div>
+<div ng-if="image.thumb">
+	<div class="{{ baseClass }}" ng-if="images.length > 1">
+		<img ng-src="{{ image.thumb }}" class="{{ thumbClass }}" ng-click="openGallery(0)" />
+		<div class="photo-count" ng-click="openGallery(0)">{{ photoLabel }}</div>
+	</div>
+	<div ng-if="images.length === 1">
+		<img ng-src="{{ image.thumb }}" class="{{ thumbClass }}" ng-click="openGallery(0)" />
+	</div>
 </div>
 <div class="ng-overlay" ng-show="opened">
 </div>
